@@ -51,6 +51,7 @@ const BucketItems = (props) =>{
             return <li key={brr.title}>
                 Title: {brr.title}
               <img src={brr.imageUrl} alt="cart items image not found" />  Rs. {brr.price} /-  Qty: {brr.quantity}
+              <button className={classes.btn_remove}> Remove </button>
             </li>
         })}
     </ul>
