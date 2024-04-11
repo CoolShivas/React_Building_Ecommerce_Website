@@ -1,0 +1,9 @@
+.unorder_list{
+    background-color: #7EA1FF;
+    display: grid;
+    place-items: center;
+}
+
+ul{
+    list-style: none;    
+}

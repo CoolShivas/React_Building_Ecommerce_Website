@@ -1,3 +1,6 @@
+import classes from "./GettingData.module.css";
+
+
 const GettingData = () =>{
 
     const productsArr = [
@@ -48,7 +51,7 @@ const GettingData = () =>{
         
         
 
-    return <>
+    return <div className={classes.unorder_list}>
     <ul>
         {productsArr.map((arr)=>{
             return <li key={arr.title}> 
@@ -58,7 +61,7 @@ const GettingData = () =>{
             </li>
         })}
     </ul>
-    </>
+    </div>
 }
 
 export default GettingData;
