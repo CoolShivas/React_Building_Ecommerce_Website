@@ -51,7 +51,11 @@ const GettingData = () =>{
     return <>
     <ul>
         {productsArr.map((arr)=>{
-            return <li key={arr.title}> {arr.title} {arr.price} <img src={arr.imageUrl} alt="image not found" /> </li>
+            return <li key={arr.title}> 
+            <h1> {arr.title} </h1> 
+            <img src={arr.imageUrl} alt="image not found" /> 
+            <h2> Rs. {arr.price} /- </h2>
+            </li>
         })}
     </ul>
     </>

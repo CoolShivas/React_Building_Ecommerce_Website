@@ -1,0 +1,18 @@
+.navbar{
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid white;
+}
+
+.anchor{
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.5rem;
+    font-size: 15px;
+}
