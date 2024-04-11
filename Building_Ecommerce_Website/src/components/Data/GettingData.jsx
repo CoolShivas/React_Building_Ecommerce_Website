@@ -55,9 +55,10 @@ const GettingData = () =>{
     <ul>
         {productsArr.map((arr)=>{
             return <li key={arr.title}> 
-            <h1> {arr.title} </h1> 
+            <span>Title: {arr.title} </span> 
             <img src={arr.imageUrl} alt="image not found" /> 
-            <h2> Rs. {arr.price} /- </h2>
+            <span> Rs. {arr.price} /- </span>
+            <button className={classes.btn_add_to__cart}> Add to Cart</button>
             </li>
         })}
     </ul>

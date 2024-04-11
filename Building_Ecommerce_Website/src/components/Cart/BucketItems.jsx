@@ -1,3 +1,4 @@
+import classes from "./BucketItems.module.css";
 import ModalOverlay from "../../UI/ModalOverlay"
 
 
@@ -45,13 +46,11 @@ const BucketItems = (props) =>{
         ]
 
     return <ModalOverlay hideBucketABC={props.hideBucketABC}>
-    <ul>
+    <ul className={classes.second_ul__tag}>
         {cartElements.map((brr)=>{
-            return <li key={brr.id}>
-                {brr.title}
-                {brr.price}
-                <img src={brr.imageUrl} alt="cart items image not found" />
-                {brr.quantity}
+            return <li key={brr.title}>
+                Title: {brr.title}
+              <img src={brr.imageUrl} alt="cart items image not found" />  Rs. {brr.price} /-  Qty: {brr.quantity}
             </li>
         })}
     </ul>
