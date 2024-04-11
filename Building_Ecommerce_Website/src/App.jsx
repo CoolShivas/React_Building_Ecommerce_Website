@@ -1,3 +1,4 @@
+import BucketItems from "./components/Cart/BucketItems";
 import { useState } from "react";
 import Navbar from "./components/Header/Navbar";
 import GettingData from "./components/Data/GettingData";
@@ -18,12 +19,12 @@ function App(){
 
   return <>
   <header>
-    <Navbar></Navbar>
+    <Navbar showBucketABC={showBucket}></Navbar>
     <AppName></AppName>
   </header>
   <main>
     <GettingData></GettingData>
-    
+    {visible && <BucketItems hideBucketABC={hideBucket}></BucketItems>}
   </main>
   <footer></footer>
   </>

@@ -1,9 +1,9 @@
 
 import classes from "./Bucket.module.css";
 
-const Bucket = () =>{
+const Bucket = ({showBucketXYZ}) =>{
     return <>
-    <button className={classes.btn_cart} onClick={()=>console.log('cart btn clicked')}>
+    <button className={classes.btn_cart} onClick={showBucketXYZ}>
         <span className={classes.cart_only}>  Cart  </span>
 <span className={classes.badge}> 0 </span>
 </button>

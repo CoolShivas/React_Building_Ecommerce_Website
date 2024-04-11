@@ -2,7 +2,7 @@ import ModalOverlay from "../../UI/ModalOverlay"
 
 
 
-const BucketItems = () =>{
+const BucketItems = ({hideBucketABC}) =>{
 
     const cartElements = [
 
@@ -55,6 +55,7 @@ const BucketItems = () =>{
             </li>
         })}
     </ul>
+    <button onClick={hideBucketABC}> Close Bucket </button>
     </ModalOverlay>
 }
 
