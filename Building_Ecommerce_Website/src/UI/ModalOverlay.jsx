@@ -3,7 +3,7 @@ import classes from "./ModalOverlay.module.css";
 
 
 const Backdrop = (props) =>{
-    return <div className={classes.backdrop}></div>
+    return <div className={classes.backdrop} onClick={props.hideBucketABC}></div>
 }
 
 
@@ -21,7 +21,7 @@ const portalElement = document.getElementById("overlay");
 
 const ModalOverlay = (props) =>{
     return <>
-    {createPortal(<Backdrop></Backdrop>, portalElement)}
+    {createPortal(<Backdrop hideBucketABC={props.hideBucketABC}></Backdrop>, portalElement)}
     {createPortal(<Modal> {props.children} </Modal>, portalElement)}
     
     </>
