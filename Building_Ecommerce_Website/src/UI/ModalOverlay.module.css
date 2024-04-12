@@ -1,20 +1,21 @@
 .modal {
     position: fixed;
     top: 20vh;
-    left: 20%;
+    left: 30%;
     width: 50%;
-
+    height: 500px;
     background-color: #C5FF95;
     padding: 1rem;
     border-radius: 14px;
     z-index: 10;
-
+    overflow-y: scroll;
 }
 
 .content {
     font-weight: bold;
     padding: 1rem;
     justify-content: space-around;
+    margin-bottom: 5rem;
 }
 
 .backdrop {
