@@ -1,59 +1,58 @@
+import { useContext } from "react";
 import classes from "./GettingData.module.css";
+import CartContext from "../../store/CartContext";
 
 
 const GettingData = () =>{
 
-    const productsArr = [
+   const {itemsAvailable} = useContext(CartContext);
+    // const productsArr = [
 
-        {
+    //     {
         
-        title: 'Colors',
+    //     title: 'Colors',
         
-        price: 100,
+    //     price: 100,
         
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+    //     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
         
-        },
+    //     },
         
-        {
+    //     {
         
-        title: 'Black and white Colors',
+    //     title: 'Black and white Colors',
         
-        price: 50,
+    //     price: 50,
         
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+    //     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
         
-        },
+    //     },
         
-        {
+    //     {
         
-        title: 'Yellow and Black Colors',
+    //     title: 'Yellow and Black Colors',
         
-        price: 70,
+    //     price: 70,
         
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+    //     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
         
-        },
+    //     },
         
-        {
+    //     {
         
-        title: 'Blue Color',
+    //     title: 'Blue Color',
         
-        price: 100,
+    //     price: 100,
         
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+    //     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
         
-        }
+    //     }
         
-        ];
+    //     ];
         
-        
-        
-        
-
     return <div className={classes.unorder_list}>
     <ul>
-        {productsArr.map((arr)=>{
+        {itemsAvailable.map((arr)=>{
             return <li key={arr.title}> 
             <span>Title: {arr.title} </span> 
             <img src={arr.imageUrl} alt="image not found" /> 

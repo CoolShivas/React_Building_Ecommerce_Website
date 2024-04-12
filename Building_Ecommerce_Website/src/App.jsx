@@ -1,3 +1,4 @@
+import CartProvider from "./store/CartProvider";
 import BucketItems from "./components/Cart/BucketItems";
 import { useState } from "react";
 import Navbar from "./components/Header/Navbar";
@@ -17,7 +18,7 @@ function App(){
       setVisible(false);
     }
 
-  return <>
+  return <CartProvider>
   <header>
     <Navbar showBucketABC={showBucket}></Navbar>
     <AppName></AppName>
@@ -27,7 +28,7 @@ function App(){
     {visible && <BucketItems hideBucketABC={hideBucket}></BucketItems>}
   </main>
   <footer></footer>
-  </>
+  </CartProvider>
 }
 
 export default App;
