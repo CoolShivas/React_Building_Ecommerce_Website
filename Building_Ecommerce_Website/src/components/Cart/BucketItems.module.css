@@ -33,3 +33,17 @@ li{
     color: white;
     font-weight: bold;
 }
+
+.close_bucket__btn{
+    background-color:#DC6B19 ;
+    float: right;
+    color: white;
+}
+
+
+.accumulated_amt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+}

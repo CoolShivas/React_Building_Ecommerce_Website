@@ -43,9 +43,9 @@ const BucketItems = (props) => {
         <thead>
           <tr>
             <th> Poduct </th>
+            <th> Image </th>
             <th> Price </th>
             <th> Quantity </th>
-            <th> Total </th>
             <th> Button </th>
           </tr>
         </thead>
@@ -55,17 +55,12 @@ const BucketItems = (props) => {
               <tr key={brr.title}>
                 <th> {brr.title} </th>
                 <th>
-                  {" "}
-                  <img
-                    src={brr.imageUrl}
-                    alt="cart items image not found"
-                  />{" "}
+                  <img src={brr.imageUrl} alt="cart items image not found" />
                 </th>
                 <th> Rs.{brr.price}/- </th>
                 <th> {brr.quantity} </th>
                 <th>
-                  {" "}
-                  <button className={classes.btn_remove}> Remove </button>{" "}
+                  <button className={classes.btn_remove}> Remove </button>
                 </th>
               </tr>
             );
@@ -82,8 +77,17 @@ const BucketItems = (props) => {
             </li>
         })}
     </ul> */}
+      <div className={classes.accumulated_amt}>
+        <span>Total Amount</span>
+        <span> Rs. 150 /-</span>
+      </div>
 
-      <button onClick={props.hideBucketABC}> Close Bucket </button>
+      <button
+        onClick={props.hideBucketABC}
+        className={classes.close_bucket__btn}
+      >
+        Close Bucket
+      </button>
     </ModalOverlay>
   );
 };
