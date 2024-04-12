@@ -1,7 +1,14 @@
 .unorder_list{
     background-color: #7EA1FF;
     display: grid;
-    place-items: center;
+    /* grid-template-rows: 1fr, 1fr; */
+    place-content: center;
+
+   
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center; */
 }
 
 ul{
@@ -9,6 +16,8 @@ ul{
 }
 
 .btn_add_to__cart{
+    height: 25px;
+    width: 100px;
     background-color: #B3C8CF;
     border: none;
     border-radius: 5px;

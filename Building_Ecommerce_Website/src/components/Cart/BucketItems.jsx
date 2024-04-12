@@ -43,7 +43,9 @@ const BucketItems = (props) =>{
         
         }
         
-        ]
+        ];
+
+        
 
     return <ModalOverlay hideBucketABC={props.hideBucketABC}>
     <ul className={classes.second_ul__tag}>
