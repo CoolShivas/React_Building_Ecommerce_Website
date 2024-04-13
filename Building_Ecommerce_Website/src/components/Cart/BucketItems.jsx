@@ -7,6 +7,10 @@ const BucketItems = (props) => {
   const { cartItems } = useContext(CartContext);
   console.log(cartItems);
 
+  const totalAccumulatedAmt = cartItems.reduce((acc, curr) => {
+    return acc + parseFloat(curr.priceABC);
+  }, 0);
+
   return (
     <ModalOverlay hideBucketABC={props.hideBucketABC}>
       <table className="table">
@@ -40,7 +44,8 @@ const BucketItems = (props) => {
 
       <div className={classes.accumulated_amt}>
         <span>Total Amount</span>
-        <span> Rs. 150 /-</span>
+        {/* <span> Rs. 150 /-</span> */}
+        <span> Rs.{totalAccumulatedAmt}/- </span>
       </div>
 
       <button
