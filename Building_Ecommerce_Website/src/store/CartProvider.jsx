@@ -38,10 +38,10 @@ const productsArr = [
 const CartProvider = (props) => {
   const [addProductItems, setProductItems] = useState(productsArr);
 
-  const [addNewItemToCart, setNewItemToCart] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const addItemToBucketHandler = (addedItems) => {
-    setNewItemToCart((previousData) => {
+    setCartItems((previousData) => {
       return [...previousData, addedItems];
     });
   };
@@ -53,7 +53,7 @@ const CartProvider = (props) => {
   const cartContextApi = {
     itemsAvailable: addProductItems,
     totalAmount: 0,
-    addNewItemToCart: addNewItemToCart,
+    cartItems: cartItems,
     addItem: addItemToBucketHandler,
     removeItem: removeItemToBucketHandler,
     changeQuantity: changeQuantity,

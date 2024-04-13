@@ -3,29 +3,24 @@ import classes from "./GettingData.module.css";
 import CartContext from "../../store/CartContext";
 
 const GettingData = () => {
-  // const [newTitle, setNewTitle] = useState();
-  // const [newPrice, setNewPrice] = useState();
-  // const [newImageUrl, setNewImageUrl] = useState();
-
   const { itemsAvailable, addItem } = useContext(CartContext);
 
   const handlerOnSubmit = (event) => {
-    event.preventDefault();
+    console.log(event);
     console.log("handlerOnSubmit Clicked");
-    // const latestObj = {
-    //   title: newTitle,
-    //   price: newPrice,
-    //   imageUrl: newImageUrl,
-    // };
-    // addItem(latestObj);
 
-    // setNewTitle("");
-    // setNewPrice("");
-    // setNewImageUrl("");
+    const latestObj = {
+      idABC: Math.random(),
+      titleABC: event.title,
+      priceABC: event.price,
+      imageUrlABC: event.imageUrl,
+      // quantity: quantity,
+    };
+    addItem(latestObj);
   };
 
   return (
-    <form className={classes.unorder_list} onSubmit={handlerOnSubmit}>
+    <div className={classes.unorder_list}>
       <ul>
         {itemsAvailable.map((arr) => {
           return (
@@ -33,14 +28,17 @@ const GettingData = () => {
               <span>Title: {arr.title} </span>
               <img src={arr.imageUrl} alt="image not found" />
               <span> Rs. {arr.price} /- </span>
-              <button className={classes.btn_add_to__cart} type="submit">
+              <button
+                className={classes.btn_add_to__cart}
+                onClick={() => handlerOnSubmit(arr)}
+              >
                 Add to Cart
               </button>
             </li>
           );
         })}
       </ul>
-    </form>
+    </div>
   );
 };
 

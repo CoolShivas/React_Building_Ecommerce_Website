@@ -1,41 +1,11 @@
 import classes from "./BucketItems.module.css";
 import ModalOverlay from "../../UI/ModalOverlay";
+import { useContext } from "react";
+import CartContext from "../../store/CartContext";
 
 const BucketItems = (props) => {
-  const cartElements = [
-    {
-      title: "Colors",
-
-      price: 100,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-
-      quantity: 2,
-    },
-
-    {
-      title: "Black and white Colors",
-
-      price: 50,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-
-      quantity: 3,
-    },
-
-    {
-      title: "Yellow and Black Colors",
-
-      price: 70,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-
-      quantity: 1,
-    },
-  ];
+  const { cartItems } = useContext(CartContext);
+  console.log(cartItems);
 
   return (
     <ModalOverlay hideBucketABC={props.hideBucketABC}>
@@ -50,14 +20,14 @@ const BucketItems = (props) => {
           </tr>
         </thead>
         <tbody>
-          {cartElements.map((brr) => {
+          {cartItems.map((brr) => {
             return (
-              <tr key={brr.title}>
-                <th> {brr.title} </th>
+              <tr key={brr.idABC}>
+                <th> {brr.titleABC} </th>
                 <th>
-                  <img src={brr.imageUrl} alt="cart items image not found" />
+                  <img src={brr.imageUrlABC} alt="cart items image not found" />
                 </th>
-                <th> Rs.{brr.price}/- </th>
+                <th> Rs.{brr.priceABC}/- </th>
                 <th> {brr.quantity} </th>
                 <th>
                   <button className={classes.btn_remove}> Remove </button>
@@ -68,15 +38,6 @@ const BucketItems = (props) => {
         </tbody>
       </table>
 
-      {/* <ul className={classes.second_ul__tag}>
-        {cartElements.map((brr)=>{
-            return <li key={brr.title}>
-                Title: {brr.title}
-              <img src={brr.imageUrl} alt="cart items image not found" />  Rs. {brr.price} /-  Qty: {brr.quantity}
-              <button className={classes.btn_remove}> Remove </button>
-            </li>
-        })}
-    </ul> */}
       <div className={classes.accumulated_amt}>
         <span>Total Amount</span>
         <span> Rs. 150 /-</span>
