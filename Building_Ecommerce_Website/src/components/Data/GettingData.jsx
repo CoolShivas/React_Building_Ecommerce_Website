@@ -6,17 +6,20 @@ const GettingData = () => {
   const { itemsAvailable, addItem } = useContext(CartContext);
 
   const handlerOnSubmit = (event) => {
-    console.log(event);
-    console.log("handlerOnSubmit Clicked");
+    // console.log(event);
+    // console.log("handlerOnSubmit Clicked");
 
-    const latestObj = {
-      idABC: Math.random(),
-      titleABC: event.title,
-      priceABC: event.price,
-      imageUrlABC: event.imageUrl,
-      // quantity: quantity,
-    };
-    addItem(latestObj);
+    // const latestObj = {
+    //   idABC: Math.random(),
+    //   titleABC: event.title,
+    //   priceABC: event.price,
+    //   imageUrlABC: event.imageUrl,
+    //   // quantityABC: 1,
+    //   quantityABC: event.quantity,
+    // };
+    addItem(event);
+    // console.log(event);
+    // addItem(latestObj);
   };
 
   return (
@@ -24,7 +27,7 @@ const GettingData = () => {
       <ul>
         {itemsAvailable.map((arr) => {
           return (
-            <li key={arr.title}>
+            <li key={arr.id}>
               <span>Title: {arr.title} </span>
               <img src={arr.imageUrl} alt="image not found" />
               <span> Rs. {arr.price} /- </span>
