@@ -79,7 +79,7 @@ const CartProvider = (props) => {
     if (updatedCartItems[special].quantity === 0) {
       updatedCartItems = updatedCartItems.filter((drr) => drr.id !== id);
     }
-    setProductItems(updatedCartItems);
+    setCartItems(updatedCartItems);
   };
 
   const cartContextApi = {
