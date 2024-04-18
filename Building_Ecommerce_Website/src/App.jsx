@@ -1,3 +1,4 @@
+import MiniHeader from "./components/Footer/MiniHeader";
 import { Routes, Route } from "react-router-dom";
 import StorePage from "./MenuNavbar/StorePage";
 import AboutPage from "./MenuNavbar/AboutPage";
@@ -41,7 +42,9 @@ function App() {
         {/* <GettingData></GettingData> */}
         {visible && <BucketItems hideBucketABC={hideBucket}></BucketItems>}
       </main>
-      <footer></footer>
+      <footer>
+        <MiniHeader></MiniHeader>
+      </footer>
     </CartProvider>
   );
 }
