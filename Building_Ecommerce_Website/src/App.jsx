@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import StorePage from "./MenuNavbar/StorePage";
 import AboutPage from "./MenuNavbar/AboutPage";
 import HomePage from "./MenuNavbar/HomePage";
@@ -27,9 +28,14 @@ function App() {
         <AppName></AppName>
       </header>
       <main>
-        <HomePage></HomePage>
+        <Routes>
+          <Route path="/" Component={HomePage}></Route>
+          <Route path="/store" Component={StorePage}></Route>
+          <Route path="/about" Component={AboutPage}></Route>
+        </Routes>
+        {/* <HomePage></HomePage>
         <StorePage></StorePage>
-        <AboutPage></AboutPage>
+        <AboutPage></AboutPage> */}
         <GettingData></GettingData>
         {visible && <BucketItems hideBucketABC={hideBucket}></BucketItems>}
       </main>
