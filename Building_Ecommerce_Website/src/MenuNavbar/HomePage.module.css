@@ -1,0 +1,24 @@
+.tour_heading {
+  text-align: center;
+  font-size: 50px;
+}
+
+.homepage_container {
+  /* background-color: orange; */
+}
+
+.btn {
+  background-color: #5debd7;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  padding: 0 1.5rem;
+
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}

@@ -1,10 +1,30 @@
-.generic{
-    background-color: gray;
-    width: 100%;
-    height: auto;
-    font-size: 120px;
-    padding-bottom: 5rem;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    padding-top: 2rem;
+.generic {
+  background-color: gray;
+  width: 100%;
+  height: auto;
+  padding-bottom: 5rem;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  padding-top: 2rem;
+
+  & h1 {
+    font-size: 100px;
+    padding-bottom: 1.5rem;
+  }
+
+  & h4 {
+    border: 3px solid #5debd7;
+    width: 20%;
+    height: 10vh;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.appName_span {
+  /* background-color: red; */
+  font-size: 70px;
+  color: #5debd7;
 }
