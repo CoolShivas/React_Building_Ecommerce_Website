@@ -6,7 +6,7 @@ import CartProvider from "./store/CartProvider";
 import BucketItems from "./components/Cart/BucketItems";
 import { useState } from "react";
 import Navbar from "./components/Header/Navbar";
-import GettingData from "./components/Data/GettingData";
+// import GettingData from "./components/Data/GettingData";
 import AppName from "./components/AppName";
 import classes from "./App.module.css";
 
@@ -38,7 +38,7 @@ function App() {
         {/* <HomePage></HomePage>
         <StorePage></StorePage>
         <AboutPage></AboutPage> */}
-        <GettingData></GettingData>
+        {/* <GettingData></GettingData> */}
         {visible && <BucketItems hideBucketABC={hideBucket}></BucketItems>}
       </main>
       <footer></footer>
