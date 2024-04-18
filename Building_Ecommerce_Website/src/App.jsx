@@ -1,3 +1,6 @@
+import StorePage from "./MenuNavbar/StorePage";
+import AboutPage from "./MenuNavbar/AboutPage";
+import HomePage from "./MenuNavbar/HomePage";
 import CartProvider from "./store/CartProvider";
 import BucketItems from "./components/Cart/BucketItems";
 import { useState } from "react";
@@ -6,29 +9,33 @@ import GettingData from "./components/Data/GettingData";
 import AppName from "./components/AppName";
 import "./App.module.css";
 
-function App(){
-
+function App() {
   const [visible, setVisible] = useState(false);
 
-    const showBucket = () =>{
-      setVisible(true);
-    }
-  
-    const hideBucket = () =>{
-      setVisible(false);
-    }
+  const showBucket = () => {
+    setVisible(true);
+  };
 
-  return <CartProvider>
-  <header>
-    <Navbar showBucketABC={showBucket}></Navbar>
-    <AppName></AppName>
-  </header>
-  <main>
-    <GettingData></GettingData>
-    {visible && <BucketItems hideBucketABC={hideBucket}></BucketItems>}
-  </main>
-  <footer></footer>
-  </CartProvider>
+  const hideBucket = () => {
+    setVisible(false);
+  };
+
+  return (
+    <CartProvider>
+      <header>
+        <Navbar showBucketABC={showBucket}></Navbar>
+        <AppName></AppName>
+      </header>
+      <main>
+        <HomePage></HomePage>
+        <StorePage></StorePage>
+        <AboutPage></AboutPage>
+        <GettingData></GettingData>
+        {visible && <BucketItems hideBucketABC={hideBucket}></BucketItems>}
+      </main>
+      <footer></footer>
+    </CartProvider>
+  );
 }
 
 export default App;
