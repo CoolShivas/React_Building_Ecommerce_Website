@@ -8,7 +8,7 @@ import { useState } from "react";
 import Navbar from "./components/Header/Navbar";
 import GettingData from "./components/Data/GettingData";
 import AppName from "./components/AppName";
-import "./App.module.css";
+import classes from "./App.module.css";
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -28,11 +28,13 @@ function App() {
         <AppName></AppName>
       </header>
       <main>
-        <Routes>
-          <Route path="/" Component={HomePage}></Route>
-          <Route path="/store" Component={StorePage}></Route>
-          <Route path="/about" Component={AboutPage}></Route>
-        </Routes>
+        <div className={classes.routes_container}>
+          <Routes>
+            <Route path="/" Component={HomePage}></Route>
+            <Route path="/store" Component={StorePage}></Route>
+            <Route path="/about" Component={AboutPage}></Route>
+          </Routes>
+        </div>
         {/* <HomePage></HomePage>
         <StorePage></StorePage>
         <AboutPage></AboutPage> */}

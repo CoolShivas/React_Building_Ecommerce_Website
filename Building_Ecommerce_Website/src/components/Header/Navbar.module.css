@@ -1,19 +1,19 @@
-.navbar{
-    background-color: black;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.navbar {
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-    width: 100%;
-    height: auto;
-    border-bottom: 2px solid white;
-    position: fixed;
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid white;
+  position: fixed;
 }
 
-.anchor{
-    color: white;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 0.5rem;
-    font-size: 15px;
+.anchor {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem;
+  font-size: 15px;
 }
