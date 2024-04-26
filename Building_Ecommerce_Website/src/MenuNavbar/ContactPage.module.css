@@ -1,0 +1,43 @@
+.contact_div{
+    background-color: #BACD92;
+    width: 100%;
+    height: auto;
+    
+    /*top: 10%;
+    left: 20%;
+     */     
+    
+     & .contact_form__div{
+        padding: 10rem;
+     }
+
+     & input{
+      padding: 10px;
+      font-weight: 600;
+      display: block;
+     }
+
+     & label{
+      width: 100%;
+      display: block;
+      padding: 10px;
+      font-weight: 600;
+     }
+
+     & .btn_contact{
+      background-color: #3C5B6F;
+      color: white;
+      font-size: 20px;
+      text-transform: capitalize;
+      width: 100%;
+      margin-top: 1rem;
+      padding: 10px;
+
+
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+}
+}

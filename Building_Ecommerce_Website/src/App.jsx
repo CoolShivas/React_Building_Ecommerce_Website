@@ -1,3 +1,4 @@
+import ContactPage from "./MenuNavbar/ContactPage";
 import MiniHeader from "./components/Footer/MiniHeader";
 import { Routes, Route } from "react-router-dom";
 import StorePage from "./MenuNavbar/StorePage";
@@ -34,6 +35,7 @@ function App() {
             <Route path="/" Component={HomePage}></Route>
             <Route path="/store" Component={StorePage}></Route>
             <Route path="/about" Component={AboutPage}></Route>
+            <Route path="/contact" Component={ContactPage}></Route>
           </Routes>
         </div>
         {/* <HomePage></HomePage>

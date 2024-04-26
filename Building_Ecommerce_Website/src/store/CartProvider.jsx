@@ -64,9 +64,9 @@ const CartProvider = (props) => {
 
   const removeItemToBucketHandler = () => {};
 
-  const changeQuantity = (id, value) => {
+  const changeQuantity = (id, quantity) => {
     // console.log(id);
-    // console.log(value);
+    // console.log(quantity);
     // console.log(cartItems);
     const special = cartItems.findIndex((crr) => crr.id === id);
     // console.log(special);
@@ -74,7 +74,7 @@ const CartProvider = (props) => {
     // console.log(updatedCartItems[special]);
     let qrr = Number(updatedCartItems[special].quantity);
 
-    updatedCartItems[special].quantity = qrr + value;
+    updatedCartItems[special].quantity = qrr + quantity;
 
     if (updatedCartItems[special].quantity === 0) {
       updatedCartItems = updatedCartItems.filter((drr) => drr.id !== id);
