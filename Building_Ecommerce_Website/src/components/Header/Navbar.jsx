@@ -27,6 +27,9 @@ const Navbar = ({ showBucketABC }) => {
       <NavLink to="/contact" className={classes.anchor}>
         contact
       </NavLink>
+      <NavLink to="/product" className={classes.anchor}>
+        product
+      </NavLink>
 
       <Bucket showBucketXYZ={showBucketABC}></Bucket>
     </div>
