@@ -6,7 +6,7 @@ import { useContext } from "react";
 import CartContext from "../../store/CartContext";
 
 const BucketItems = (props) => {
-  const { cartItems, changeQuantity } = useContext(CartContext);
+  const { cartItems, changeQuantity, removeItem } = useContext(CartContext);
   // console.log(cartItems);
 
   const totalAccumulatedAmt = cartItems.reduce((acc, curr) => {
@@ -54,7 +54,7 @@ const BucketItems = (props) => {
                   </button>
                 </th>
                 <th>
-                  <button className={classes.btn_remove}> Remove </button>
+                  <button className={classes.btn_remove} onClick={()=>removeItem(brr.id)}> Remove </button>
                 </th>
               </tr>
             );

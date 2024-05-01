@@ -62,7 +62,12 @@ const CartProvider = (props) => {
     });
   };
 
-  const removeItemToBucketHandler = () => {};
+  const removeItemToBucketHandler = (id) => {
+    const removeDel = cartItems.filter((err)=>{
+      return err.id !== id;
+    })
+    setCartItems(removeDel);
+  };
 
   const changeQuantity = (id, quantity) => {
     // console.log(id);
