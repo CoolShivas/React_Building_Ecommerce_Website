@@ -55,6 +55,10 @@ const CartProvider = (props) => {
 
   const [cartItems, setCartItems] = useState([]);
 
+  const [token, setToken] = useState(null);
+
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(token);
+
   const addItemToBucketHandler = (addedItems) => {
     console.log(addedItems);
     setCartItems((previousData) => {
@@ -87,6 +91,12 @@ const CartProvider = (props) => {
     setCartItems(updatedCartItems);
   };
 
+
+  const handlerOnLogIn = (tookey) =>{
+    setToken(tookey);
+    setIsUserLoggedIn(true);
+  };
+ 
   const cartContextApi = {
     itemsAvailable: addProductItems,
     totalAmount: 0,
@@ -94,6 +104,8 @@ const CartProvider = (props) => {
     addItem: addItemToBucketHandler,
     removeItem: removeItemToBucketHandler,
     changeQuantity: changeQuantity,
+    isLoggedIn : isUserLoggedIn,
+    logIn : handlerOnLogIn,
   };
 
   return (

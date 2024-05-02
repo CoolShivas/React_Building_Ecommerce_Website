@@ -7,5 +7,7 @@ const CartContext = createContext({
   removeItems: (id) => {},
   changeQuantity: (id, value) => {},
   cartItems: [],
+  isLoggedIn : false,
+  logIn : (tookey)=>{},
 });
 export default CartContext;
