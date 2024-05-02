@@ -14,6 +14,27 @@ const AuthForm = () => {
 
   const submitFormHandler = (event) => {
     event.preventDefault();
+
+    const enteredEmail = emailInputRef.current.value;
+    const enteredPassword = passwordInputRef.current.value;
+
+    let url;
+    if(isLogin)
+    {
+        url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]`;
+    }
+    else{
+        url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]`
+    }
+    axios.post(url,{
+        email : enteredEmail,
+        password : enteredPassword,
+    }).then((response)=>{
+        console.log(response);
+    }).catch((error)=>{
+        console.log(error);
+    })
+
   };
 
   return (
