@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { useContext, useRef} from "react";
 import classes from "./AuthForm.module.css";
 import CartContext from "../../store/CartContext";
 
 
 const AuthForm = () => {
+
+  const myUseHistory = useNavigate();
 
   const {logIn} = useContext(CartContext);
 
@@ -47,6 +50,7 @@ const AuthForm = () => {
     }).then((res)=>{
       console.log(res);
       logIn(res.idToken);
+      myUseHistory("/store");
     }).catch((error)=>{
       console.log(error);
       alert(error.message);

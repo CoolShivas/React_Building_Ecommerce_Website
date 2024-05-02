@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CartContext from "./CartContext";
 
 const productsArr = [
@@ -94,8 +94,14 @@ const CartProvider = (props) => {
 
   const handlerOnLogIn = (tookey) =>{
     setToken(tookey);
+    localStorage.setItem("myData" , tookey);
     setIsUserLoggedIn(true);
   };
+
+  useEffect(()=>{
+    localStorage.getItem("myData");
+    setIsUserLoggedIn(true);
+  },[]);
  
   const cartContextApi = {
     itemsAvailable: addProductItems,
