@@ -18,18 +18,25 @@ const Navbar = ({ showBucketABC }) => {
       <NavLink to="/" className={classes.anchor}>
         home
       </NavLink>
+      
       <NavLink to="/store" className={classes.anchor}>
         store
       </NavLink>
+
       <NavLink to="/about" className={classes.anchor}>
         about
       </NavLink>
+
       <NavLink to="/contact" className={classes.anchor}>
         contact
       </NavLink>
-     
 
       <Bucket showBucketXYZ={showBucketABC}></Bucket>
+
+      <NavLink to="/auth" className={classes.anchor}>
+        login
+      </NavLink>
+
     </div>
   );
 };
