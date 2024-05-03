@@ -1,3 +1,4 @@
+import axios from "axios";
 import {Link} from "react-router-dom";
 import { useContext, useState } from "react";
 import classes from "./GettingData.module.css";
@@ -21,6 +22,7 @@ const GettingData = () => {
     addItem(event);
     // console.log(event);
     // addItem(latestObj);
+   
   };
 
   return (
@@ -30,8 +32,9 @@ const GettingData = () => {
           return (
             <li key={arr.id}>
               <span>Title: {arr.title} </span>
-              {/* <Link to="/product-detail"> <img src={arr.imageUrl} alt="image not found" /> </Link> */}
-              <Link to="/auth"> <img src={arr.imageUrl} alt="image not found" /> </Link>
+              {/* <img src={arr.imageUrl} alt="image not found" /> */}
+              <Link to="/product-detail"> <img src={arr.imageUrl} alt="image not found" /> </Link>
+              {/* <Link to="/auth"> <img src={arr.imageUrl} alt="image not found" /> </Link> */}
               <span> Rs. {arr.price} /- </span>
               <button
                 className={classes.btn_add_to__cart}

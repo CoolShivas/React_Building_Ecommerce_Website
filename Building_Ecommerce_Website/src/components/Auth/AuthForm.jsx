@@ -51,8 +51,8 @@ const AuthForm = () => {
     }).then((res)=>{
       console.log(res);
       logIn(res.idToken);
-      // myUseHistory.replace("/store");
-      myUseHistory.replace("/product-detail");
+      myUseHistory.replace("/store");
+      // myUseHistory.replace("/product-detail");
     }).catch((error)=>{
       console.log(error);
       alert(error.message);
