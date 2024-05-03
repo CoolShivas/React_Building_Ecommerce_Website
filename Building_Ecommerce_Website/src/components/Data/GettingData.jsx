@@ -30,7 +30,8 @@ const GettingData = () => {
           return (
             <li key={arr.id}>
               <span>Title: {arr.title} </span>
-              <Link to="/product-detail"> <img src={arr.imageUrl} alt="image not found" /> </Link>
+              {/* <Link to="/product-detail"> <img src={arr.imageUrl} alt="image not found" /> </Link> */}
+              <Link to="/auth"> <img src={arr.imageUrl} alt="image not found" /> </Link>
               <span> Rs. {arr.price} /- </span>
               <button
                 className={classes.btn_add_to__cart}
