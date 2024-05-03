@@ -2,7 +2,7 @@ import AuthForm from "./components/Auth/AuthForm";
 import ProductDetail from "./MenuNavbar/ProductDetail";
 import ContactPage from "./MenuNavbar/ContactPage";
 import MiniHeader from "./components/Footer/MiniHeader";
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import StorePage from "./MenuNavbar/StorePage";
 import AboutPage from "./MenuNavbar/AboutPage";
 import HomePage from "./MenuNavbar/HomePage";
@@ -32,20 +32,18 @@ function App() {
       </header>
       <main>
         <div className={classes.routes_container}>
-          <Routes>
-            <Route path="/" Component={HomePage}></Route>
-            <Route path="/store" Component={StorePage}></Route>
-            <Route path="/about" Component={AboutPage}></Route>
-            <Route path="/contact" Component={ContactPage}></Route>
+
+          <Switch>
+            <Route exact path="/"> <HomePage></HomePage> </Route>
+            <Route exact path="/store">  <StorePage></StorePage> </Route>
+            <Route exact path="/about"> <AboutPage></AboutPage> </Route>
+            <Route exact path="/contact"> <ContactPage></ContactPage> </Route>
             {/* <Route path="/product" Component={ProductPage}></Route> */}
-            <Route path="/product-detail" Component={ProductDetail}></Route>
-            <Route path="/auth" Component={AuthForm}></Route>
-          </Routes>
+            <Route exact path="/product-detail"> <ProductDetail></ProductDetail> </Route>
+            <Route exact path="/auth"> <AuthForm></AuthForm> </Route>
+          </Switch>
         </div>
-        {/* <HomePage></HomePage>
-        <StorePage></StorePage>
-        <AboutPage></AboutPage> */}
-        {/* <GettingData></GettingData> */}
+  
         {visible && <BucketItems hideBucketABC={hideBucket}></BucketItems>}
       </main>
       <footer>

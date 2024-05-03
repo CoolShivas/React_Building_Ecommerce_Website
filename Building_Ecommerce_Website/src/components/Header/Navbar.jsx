@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import Bucket from "../Cart/Bucket";
 import classes from "./Navbar.module.css";
 
@@ -27,6 +27,7 @@ const Navbar = ({ showBucketABC }) => {
       <NavLink to="/auth" className={classes.anchor}>
         login
       </NavLink>
+
 
     </div>
   );
