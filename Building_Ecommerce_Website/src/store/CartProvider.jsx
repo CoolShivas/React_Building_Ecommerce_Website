@@ -50,6 +50,7 @@ const productsArr = [
   },
 ];
 
+
 const CartProvider = (props) => {
   const [addProductItems, setProductItems] = useState(productsArr);
 
@@ -108,6 +109,12 @@ const CartProvider = (props) => {
     localStorage.getItem("myData");
     setIsUserLoggedIn(true);
   },[]);
+
+  // // Adding cart items to localStorage ;
+  useEffect(()=>{
+    localStorage.setItem("CartPurchase", JSON.stringify(cartItems));
+    // // Setting data to cart by giving name i.e, "CartPurchase" and converting it JSON.stringify and passing the cart items i.e,(cartItems) and most import for updating again and again passing dependency arr having cartItems in it. For updating again and again;
+  },[cartItems]);
  
   const cartContextApi = {
     itemsAvailable: addProductItems,
