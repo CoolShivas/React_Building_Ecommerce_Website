@@ -9,5 +9,6 @@ const CartContext = createContext({
   cartItems: [],
   isLoggedIn : false,
   logIn : (tookey)=>{},
+  logOut : ()=>{},
 });
 export default CartContext;

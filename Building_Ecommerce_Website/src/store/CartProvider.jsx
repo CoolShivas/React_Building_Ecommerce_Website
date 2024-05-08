@@ -98,6 +98,12 @@ const CartProvider = (props) => {
     setIsUserLoggedIn(true);
   };
 
+  const handlerOnLogOut = () =>{
+    setToken(null);
+    localStorage.removeItem("myData");
+    setIsUserLoggedIn(false);
+  };
+
   useEffect(()=>{
     localStorage.getItem("myData");
     setIsUserLoggedIn(true);
@@ -112,6 +118,7 @@ const CartProvider = (props) => {
     changeQuantity: changeQuantity,
     isLoggedIn : isUserLoggedIn,
     logIn : handlerOnLogIn,
+    logOut : handlerOnLogOut,
   };
 
   return (
