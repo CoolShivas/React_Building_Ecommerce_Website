@@ -50,11 +50,23 @@ const productsArr = [
   },
 ];
 
+// // Retrieving cart items from localStorage after refreshing the page again and again;
+const gettingLocalStorageData = () =>{
+  let localCartData = localStorage.getItem("CartPurchase");
+  if(localCartData == [])
+    {
+      return [];
+    }
+    else{
+      return JSON.parse(localCartData);
+    }
+};
+
 
 const CartProvider = (props) => {
   const [addProductItems, setProductItems] = useState(productsArr);
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(gettingLocalStorageData() || []);
 
   const [token, setToken] = useState(null);
 
