@@ -8,7 +8,7 @@ const Navbar = ({ showBucketABC }) => {
   const { isLoggedIn, logOut } = useContext(CartContext);
   return (
     <div className={classes.navbar}>
-      {!isLoggedIn && (
+      {/* {!isLoggedIn && (
         <>
           <NavLink to="/" className={classes.anchor}>
             home
@@ -44,7 +44,42 @@ const Navbar = ({ showBucketABC }) => {
             logout
           </NavLink>
         </>
-      )}
+      )} */}
+
+
+
+          
+          
+          <NavLink to="/" className={classes.anchor}>
+            home
+          </NavLink>
+
+          <NavLink to="/auth" className={classes.anchor}>
+            store
+          </NavLink>
+
+          <NavLink to="/about" className={classes.anchor}>
+            about
+          </NavLink>
+
+          <NavLink to="/contact" className={classes.anchor}>
+            contact
+          </NavLink>
+
+         {isLoggedIn && <Bucket showBucketXYZ={showBucketABC}></Bucket>}
+
+         {!isLoggedIn && <NavLink to="/auth" className={classes.anchor}>
+            login
+          </NavLink>}
+
+          {isLoggedIn && <NavLink to="/" className={classes.anchor}
+          onClick={()=>{logOut()}}
+          >
+            logout
+          </NavLink>}
+
+
+
     </div>
   );
 };

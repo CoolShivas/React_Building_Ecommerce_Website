@@ -73,7 +73,7 @@ const CartProvider = (props) => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(token);
 
   const addItemToBucketHandler = (addedItems) => {
-    console.log(addedItems);
+    // console.log(addedItems);// // Here, we are getting all the added items;
     setCartItems((previousData) => {
       return [...previousData, addedItems];
     });
