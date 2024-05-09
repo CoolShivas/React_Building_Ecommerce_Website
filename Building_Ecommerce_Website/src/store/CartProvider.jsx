@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CartContext from "./CartContext";
+import axios from "axios";
 
 const productsArr = [
   {
@@ -51,17 +52,14 @@ const productsArr = [
 ];
 
 // // Retrieving cart items from localStorage after refreshing the page again and again;
-const gettingLocalStorageData = () =>{
+const gettingLocalStorageData = () => {
   let localCartData = localStorage.getItem("CartPurchase");
-  if(localCartData == [])
-    {
-      return [];
-    }
-    else{
-      return JSON.parse(localCartData);
-    }
+  if (localCartData == []) {
+    return [];
+  } else {
+    return JSON.parse(localCartData);
+  }
 };
-
 
 const CartProvider = (props) => {
   const [addProductItems, setProductItems] = useState(productsArr);
@@ -80,9 +78,9 @@ const CartProvider = (props) => {
   };
 
   const removeItemToBucketHandler = (id) => {
-    const removeDel = cartItems.filter((err)=>{
+    const removeDel = cartItems.filter((err) => {
       return err.id !== id;
-    })
+    });
     setCartItems(removeDel);
   };
 
@@ -104,30 +102,35 @@ const CartProvider = (props) => {
     setCartItems(updatedCartItems);
   };
 
-
-  const handlerOnLogIn = (tookey) =>{
+  const handlerOnLogIn = (tookey) => {
     setToken(tookey);
-    localStorage.setItem("myData" , tookey);
+    localStorage.setItem("myData", tookey);
     setIsUserLoggedIn(true);
   };
 
-  const handlerOnLogOut = () =>{
+  const handlerOnLogOut = () => {
     setToken(null);
     localStorage.removeItem("myData");
     setIsUserLoggedIn(false);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.getItem("myData");
     setIsUserLoggedIn(true);
-  },[]);
+  }, []);
 
   // // Adding cart items to localStorage ;
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.setItem("CartPurchase", JSON.stringify(cartItems));
     // // Setting data to cart by giving name i.e, "CartPurchase" and converting it JSON.stringify and passing the cart items i.e,(cartItems) and most import for updating again and again passing dependency arr having cartItems in it. For updating again and again;
-  },[cartItems]);
- 
+  }, [cartItems]);
+
+  const [email, setEmail] = useState("");
+
+  const handlerOnEmail = (yrr) =>{
+    setEmail(yrr);
+  };
+
   const cartContextApi = {
     itemsAvailable: addProductItems,
     totalAmount: 0,
@@ -135,9 +138,11 @@ const CartProvider = (props) => {
     addItem: addItemToBucketHandler,
     removeItem: removeItemToBucketHandler,
     changeQuantity: changeQuantity,
-    isLoggedIn : isUserLoggedIn,
-    logIn : handlerOnLogIn,
-    logOut : handlerOnLogOut,
+    isLoggedIn: isUserLoggedIn,
+    logIn: handlerOnLogIn,
+    logOut: handlerOnLogOut,
+    currEmail : email,
+    emailHandler : handlerOnEmail,
   };
 
   return (

@@ -8,12 +8,16 @@ import AboutPage from "./MenuNavbar/AboutPage";
 import HomePage from "./MenuNavbar/HomePage";
 import CartProvider from "./store/CartProvider";
 import BucketItems from "./components/Cart/BucketItems";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Navbar from "./components/Header/Navbar";
 import AppName from "./components/AppName";
 import classes from "./App.module.css";
+import CartContext from "./store/CartContext";
 
 function App() {
+
+  const {isLoggedIn} = useContext(CartContext);
+
   const [visible, setVisible] = useState(false);
 
   const showBucket = () => {
@@ -35,12 +39,18 @@ function App() {
 
           <Switch>
             <Route exact path="/"> <HomePage></HomePage> </Route>
-            <Route exact path="/store">  <StorePage></StorePage> </Route>
+            <Route exact path="/store">  
+            {isLoggedIn && <StorePage></StorePage> }
+            {!isLoggedIn && <Redirect to="/auth"></Redirect> }
+            </Route>
             <Route exact path="/about"> <AboutPage></AboutPage> </Route>
             <Route exact path="/contact"> <ContactPage></ContactPage> </Route>
             {/* <Route path="/product" Component={ProductPage}></Route> */}
             <Route exact path="/product-detail"> <ProductDetail></ProductDetail> </Route>
-            <Route exact path="/auth"> <AuthForm></AuthForm> </Route>
+            {!isLoggedIn && <Route exact path="/auth"> <AuthForm></AuthForm> </Route>}
+            <Route path="*">
+          <Redirect to="/"></Redirect>
+        </Route>
           </Switch>
         </div>
   

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { SlMinus } from "react-icons/sl";
 import classes from "./BucketItems.module.css";
@@ -6,7 +7,7 @@ import { useContext } from "react";
 import CartContext from "../../store/CartContext";
 
 const BucketItems = (props) => {
-  const { cartItems, changeQuantity, removeItem } = useContext(CartContext);
+  const { cartItems, changeQuantity, removeItem, currEmail} = useContext(CartContext);
   // console.log(cartItems);
 
   const totalAccumulatedAmt = cartItems.reduce((acc, curr) => {
@@ -22,6 +23,19 @@ const BucketItems = (props) => {
     changeQuantity(id, -1);
   };
 
+  const handlerOnRemoveBtn = (brr, crr) =>{
+
+    axios.delete(`https://crudcrud.com/api/3da97b9609784182ab428b91f1be7ec0/${currEmail}/${brr._id}`)
+    .then((res)=>{
+      console.logR(res);
+      removeItem(brr,crr);
+    })
+    .cathc((err)=>{
+      console.log(err);
+    })
+
+  };
+
   return (
     <ModalOverlay hideBucketABC={props.hideBucketABC}>
       <table className="table">
@@ -35,7 +49,7 @@ const BucketItems = (props) => {
           </tr>
         </thead>
         <tbody>
-          {cartItems.map((brr) => {
+          {cartItems.map((brr, crr) => {
             return (
               <tr key={brr.id}>
                 <th> {brr.title} </th>
@@ -54,7 +68,8 @@ const BucketItems = (props) => {
                   </button>
                 </th>
                 <th>
-                  <button className={classes.btn_remove} onClick={()=>removeItem(brr.id)}> Remove </button>
+                  <button className={classes.btn_remove} onClick={handlerOnRemoveBtn(brr, crr)}> Remove </button>
+                  {/* <button className={classes.btn_remove} onClick={()=>removeItem(brr.id)}> Remove </button> */}
                 </th>
               </tr>
             );

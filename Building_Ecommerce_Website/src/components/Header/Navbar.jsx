@@ -6,27 +6,16 @@ import CartContext from "../../store/CartContext";
 
 const Navbar = ({ showBucketABC }) => {
   const { isLoggedIn, logOut } = useContext(CartContext);
+
   return (
     <div className={classes.navbar}>
-      {/* {!isLoggedIn && (
-        <>
+          
+          
           <NavLink to="/" className={classes.anchor}>
             home
           </NavLink>
 
           <NavLink to="/auth" className={classes.anchor}>
-            login
-          </NavLink>
-        </>
-      )}
-
-      {isLoggedIn && (
-        <>
-          <NavLink to="/" className={classes.anchor}>
-            home
-          </NavLink>
-
-          <NavLink to="/store" className={classes.anchor}>
             store
           </NavLink>
 
@@ -40,43 +29,26 @@ const Navbar = ({ showBucketABC }) => {
 
           <Bucket showBucketXYZ={showBucketABC}></Bucket>
 
-          <NavLink to="/" className={classes.anchor} onClick={() => logOut()}>
-            logout
-          </NavLink>
-        </>
-      )} */}
-
-
-
-          
-          
-          <NavLink to="/" className={classes.anchor}>
-            home
-          </NavLink>
-
           <NavLink to="/auth" className={classes.anchor}>
-            store
+            login
           </NavLink>
 
-          <NavLink to="/about" className={classes.anchor}>
-            about
-          </NavLink>
-
-          <NavLink to="/contact" className={classes.anchor}>
-            contact
-          </NavLink>
-
-         {isLoggedIn && <Bucket showBucketXYZ={showBucketABC}></Bucket>}
+         {/* {isLoggedIn && <Bucket showBucketXYZ={showBucketABC}></Bucket>}
 
          {!isLoggedIn && <NavLink to="/auth" className={classes.anchor}>
             login
-          </NavLink>}
+          </NavLink>} */}
 
-          {isLoggedIn && <NavLink to="/" className={classes.anchor}
+          {/* {isLoggedIn && <NavLink to="/" className={classes.anchor}
           onClick={()=>{logOut()}}
           >
             logout
-          </NavLink>}
+          </NavLink>} */}
+
+          {isLoggedIn && <li>
+            <button onClick={logOut()}> LogOut 
+            </button>
+          </li>}
 
 
 

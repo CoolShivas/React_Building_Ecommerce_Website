@@ -1,11 +1,15 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 // import { useNavigate } from "react-router-dom";
-import { useContext, useRef} from "react";
+import { useContext, useRef, useState} from "react";
 import classes from "./AuthForm.module.css";
 import CartContext from "../../store/CartContext";
 
 
 const AuthForm = () => {
+
+  const [isLogIn, setIsLogIn] = useState(true);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const myUseHistory = useHistory();
 
@@ -14,14 +18,28 @@ const AuthForm = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
+  const switchAuthModeHandler = () => {
+    setIsLogIn((prevState) => !prevState);
+  };
+
   const submitFormHandler = (event) => {
     event.preventDefault();
 
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
-    fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=
-    AIzaSyA3uDanIx3CS59VvW0SSdaaShcsZjapqno`,{
+    setIsLoading(true);
+    let url;
+
+    if(isLogIn)
+      {
+        url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBkSIZmpvU3onXN_v9XWgPWXXnycAeH83w`
+      }
+      else{
+        url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBkSIZmpvU3onXN_v9XWgPWXXnycAeH83w`
+      }
+
+    fetch(url,{
       method : "POST",
       body : JSON.stringify({
         email : enteredEmail,
@@ -33,6 +51,7 @@ const AuthForm = () => {
       }
     }).then((response)=>{
       console.log(response);
+      setIsLoading(false);
       if(response.ok)
       {
         return response.json();
@@ -51,6 +70,17 @@ const AuthForm = () => {
     }).then((res)=>{
       console.log(res);
       logIn(res.idToken);
+
+      const yrr =  enteredEmail.split("");
+      console.log(yrr);
+      const yrrFilter = yrr.filter((xrr)=>{
+        return xrr !== "@" && xrr !== ".";
+      });
+      console.log(yrrFilter);
+      const zrrFilter = yrrFilter.join("");
+      console.log(zrrFilter);
+      
+      
       myUseHistory.replace("/store");
       // myUseHistory.replace("/product-detail");
     }).catch((error)=>{
@@ -65,7 +95,7 @@ const AuthForm = () => {
 
   return (
     <section className={classes.auth}>
-      <h1> Login </h1>
+      <h1>{isLogIn ? "Login" : "Sign Up"}</h1>
 
       <form onSubmit={submitFormHandler}>
         <div className={classes.control}>
@@ -83,7 +113,16 @@ const AuthForm = () => {
         </div>
         <div className={classes.actions}>
           
-          <button> Login </button> 
+        {!isLoading && <button> {isLogIn ? 'Login' : 'Create Account'} </button>}
+           {isLoading && <p> Sending Request.... </p>}
+          
+          <button
+            type="button"
+            className={classes.toggle}
+            onClick={switchAuthModeHandler}
+          >
+            {isLogIn ? "Create new account" : "Login with existing account"}
+          </button>
 
         </div>
       </form>
